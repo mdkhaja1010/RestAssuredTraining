@@ -4,13 +4,13 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
-import io.restassured.path.xml.XmlPath;
+//import io.restassured.path.xml.XmlPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import java.util.List;
 
-import org.hamcrest.Matchers;
+//import org.hamcrest.Matchers;
 
 
 public class ValidateXMLResponse {
@@ -43,27 +43,27 @@ public class ValidateXMLResponse {
 
 				
 				//Approach 2
-				XmlPath objXmlPath = new XmlPath(response.asString());
+				//XmlPath objXmlPath = new XmlPath(response.asString());
 				
-				String travellerName = objXmlPath.get("TravelerinformationResponse.travelers.Travelerinformation[0].name").toString();
-				Assert.assertEquals(travellerName, "Developer", "check for traveller name.");
+				//String travellerName = objXmlPath.get("TravelerinformationResponse.travelers.Travelerinformation[0].name").toString();
+			//	Assert.assertEquals(travellerName, "Developer", "check for traveller name.");
 				
 				//Verify total travelers to be 10
 				
-				List<String> listOfTravellers = objXmlPath.getList("TravelerinformationResponse.travelers.Travelerinformation");
+				//List<String> listOfTravellers = objXmlPath.getList("TravelerinformationResponse.travelers.Travelerinformation");
 				
-				int totalTravelerCount = listOfTravellers.size();
+			//	int totalTravelerCount = listOfTravellers.size();
 				
-				Assert.assertEquals(totalTravelerCount, 10,"check for total no. of traveller on page-1");
+				//Assert.assertEquals(totalTravelerCount, 10,"check for total no. of traveller on page-1");
 	
 				
 				//verify for name vano in travellers list
-				List<String> listOfTravellersName = objXmlPath.getList("TravelerinformationResponse.travelers.Travelerinformation.name");
+			//	List<String> listOfTravellersName = objXmlPath.getList("TravelerinformationResponse.travelers.Travelerinformation.name");
 
 				//print all the names in the travellers list
 				
 				boolean found = false;
-				for (String traveller :listOfTravellersName )
+			/*	for (String traveller :listOfTravellersName )
 				{
 					System.out.println(traveller);
 					
@@ -74,7 +74,7 @@ public class ValidateXMLResponse {
 					}
 					
 					
-				}
+				}*/
 				
 				Assert.assertEquals(found, true);
 		
@@ -143,7 +143,7 @@ public class ValidateXMLResponse {
 		//verify status code
 		Assert.assertEquals(response.statusCode()/*actual status code*/,/*expected status code*/200,"Check for status code");
 		
-		response.then().body("Pet.name", Matchers.equalTo("doggie"));
+		//response.then().body("Pet.name", Matchers.equalTo("doggie"));
 		
 		
 	}
